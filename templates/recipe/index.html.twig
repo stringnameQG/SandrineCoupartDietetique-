@@ -1,0 +1,117 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/recipe/recipeIndex.css') }}">
+{% endblock %}
+
+{% block scripts %}
+	<script src="{{ asset('js/recette/windowOnload.js') }}"></script>
+	<script src="{{ asset('js/modele/navAffichage.js') }}"></script>
+	<script src="{{ asset('js/jquery/jquery-3.7.1.min.js') }}"></script>
+	<script src="{{ asset('js/recette/avisRecette.js') }}"></script>
+	<script src="{{ asset('php/recette/avisRecette.php') }}"></script>
+{% endblock %}
+
+{% block header %}
+    <a class="btn-new" class="ajouter" href="{{ path('app_recipe_new') }}">Nouvelle recette</a>
+{% endblock %}
+{% block main %}
+    <h1>Liste recette</h1>
+    <div class="recipe">
+    {% for recipe in recipes %}
+    <article class="recipe-affichage">
+        <div class="recipe-affichage__title">
+            <p class="titre-recipe">{{ recipe.title }}</p>
+        </div>
+        <div class="recipe-affichage__img">
+            <img class="img" src={{ "https://res.cloudinary.com/derejrikc/image/upload/v1712508171/stephaniecarondietetique/" ~ recipe.picture[0].name ~ ".webp" }} alt="Image" decoding="async">
+        </div>
+        <div class="recipe-affichage__description">
+            <p>Description:</p>
+            <p>{{ recipe.description }}</p>
+        </div>
+        <div class="recipe-affichage__temps">
+            <div class="recipe-affichage__temps__total">
+                <p>Temps total:</p>
+                <p>{{ (recipe.breakTime|date("U") + recipe.cookingTime|date("U"))|date("H\\hi") }}</p>
+            </div>
+            <div class="recipe-affichage__temps__breakTime">
+                <p>Temps preparation:</p>
+                <p>{{ recipe.breakTime|date("H\\hi") }}m</p>
+            </div>
+            <div class="recipe-affichage__temps__cookingTime">
+                <p>Temps cuisson:</p>
+                <p>{{ recipe.cookingTime|date("H\\hi") }}m</p>
+            </div>
+        </div>
+        <div class="recipe-affichage__ingredients">
+            <p>Listes ingrédients:</p>
+            <p>{{ recipe.ingredients }}</p>
+        </div>
+        <div class="recipe-affichage__step">
+            <p>Étape:</p>
+            <p>{{ recipe.step }}</p>
+        </div>
+        <div class="recipe-affichage__public">
+            <p>Public:</p>
+            <p>{{ recipe.public ? 'Oui' : 'Non' }}</p>
+        </div>
+        <div class="recipe-affichage__allergens">
+            {% if recipe.allergens %}
+            <p>Listes allergens:</p>
+                {% for item in recipe.allergens %}
+                <p>{{ item.name }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="recipe-affichage__diet">
+            {% if recipe.diet %}
+            <p>Diets:</p>
+            {% for item in recipe.diet %}
+            <p>{{ item.name }}</p>
+            {% endfor %}
+        </div>
+        <div class="recipe-affichage__avis">
+            {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %} 
+            <form class="recipe-affichage__avis__form" class="form-view" method="POST">
+                <label for="score">score</label>
+                <input type="number" name="score" id="score" min="0" max="5" value="" require>
+                <label for="comment">comment</label>
+                <textarea name="comment" id="comment" maxlength="400" value="" require></textarea>
+                <input type="number" name="recipe" id="recipe" value="{{ recipe.id }}" hidden readonly require>
+                <input type="number" name="userId" id="userId" value="{{ app.user.id }}" hidden readonly require>
+            </form>
+            <button class="serialisation" id="Serialisation">ENVOYER</button>
+            {% endif %} 
+            
+            {% endif %}
+            {% if recipe.view %} 
+            <p>Avis:</p>
+            <div class="recipe-affichage__avis__classement">
+                {% for item in recipe.view %}
+                {{ item.comment }} 
+                <div class="recipe-affichage__avis__btn">
+                    {% set view = {"id": item.id|number_format} %} 
+                    {{ include('view/_delete_form.html.twig') }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="recipe-affichage__items__btn">
+            {{ include('recipe/_delete_form.html.twig') }}
+            <a class="btn-modifier" href="{{ path('app_recipe_edit', {'id': recipe.id}) }}">Modifier</a>
+        </div>
+    </article>
+    {% endfor %}
+    </div>
+{% endblock %}
+{% block footer %}
+    {% for page in 1..totalPages %}
+        {% if page == currentPage %}
+            <span>{{ page }}</span>
+        {% else %}
+            <a class="page-non-courante" href="{{ path('app_recipe_index', {'page': page}) }}">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

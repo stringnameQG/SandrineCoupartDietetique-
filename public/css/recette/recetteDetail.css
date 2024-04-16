@@ -1,0 +1,153 @@
+body {
+    background-color: rgb(140, 140, 140);
+    background-image: url("../../dossierImage/Recette/FraiseDansBolEnCeramique.webp");
+    background-size: cover;
+}
+main {
+    margin-left: 20px; margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.recette-affichage {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.recette-affichage__lien {
+    text-decoration: none;
+    color: #000000;
+}
+.contacte-affichage__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.infos-principale, .infos-time, .infos-regime, .infos-public {
+    padding: 6px;
+    background-color: hsla(0, 0%, 100%, 0.30);
+    border-radius: 10px;
+}
+.infos-time {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.infos-time>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.infos-public {
+    max-width: 80%;
+    margin-left: 4px;  margin-right: 4px;
+    padding: 10px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.infos-public__step {
+    justify-self: center;
+    width: 80vw;
+    height: fit-content;
+    white-space: break-spaces;
+    color: #000000;
+    background-color: #ffffff00;
+    border: 1px solid #00000000;
+    resize: none;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: center;
+    gap: 10px;
+}
+.form-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: start;
+    gap: 10px;
+}
+.serialisation {
+    width: fit-content;
+    align-self: center;
+}
+.avis-affichage {
+    padding: 4px;
+    width: 100%;
+    margin-top: 4px;  margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.avis-affichage__items {
+    margin: 0px;
+}
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+}
+img {
+    border-radius: 10px;
+}
+h2 {
+    margin: 4px;
+    margin-left: 8px;  margin-right: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+p {
+    margin: 4px;
+    color: #000000;
+    letter-spacing: 1px;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+input {
+    border-radius: 5px;
+}
+textarea {
+    width: 300px;
+    height: 60px;
+    resize: none;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-image: url("../../dossierImage/contacteCLI/AsietteViandeEtTranche.webp");
+    }
+    h1 {
+        color: #ffffff;
+    }
+    .nav-list__item {
+        color: #ffffff;
+    }
+    main {
+        gap: 60px;
+    }
+}

@@ -1,0 +1,199 @@
+.header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+}
+.btn-new {
+    padding: 2px;
+    background-color: #48CC46;
+    color: #ffffff;
+    text-decoration: none;
+    justify-self: center;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: black;
+}
+.btn-new:hover {
+    background-color: #289526;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 12px;
+}
+.recipe-affichage {
+    border: 1px solid;
+    border-color: black;
+    background-color: #efefef;
+    margin: 6px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 12px;
+    border-radius: 5px;
+}
+.recipe-affichage__title>div, .recipe-affichage__description>div, .recipe-affichage__ingredients>div, .recipe-affichage__temps>div, .recipe-affichage__allergens>div, .recipe-affichage__diet>div, .recipe-affichage__public>div, .recipe-affichage__step>div, .recipe-affichage__img>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#recipe_title {
+    width: 200px;
+    font-size: 20px;
+}
+#recipe_description {
+    width: 60vw;
+    height: 80px;
+    font-size: 20px;
+}
+#recipe_ingredients {
+    width: 60vw;
+    height: 80px;
+    font-size: 20px;
+}
+#recipe_allergens {
+    width: fit-content;
+}
+#recipe_diet {
+    width: fit-content;
+}
+#recipe_step {
+    width: 60vw;
+    height: 80px;
+    font-size: 20px;
+}
+.recipe-affichage__items__name, .recipe-affichage__items__description {
+    background-color: #ffffff;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: flex-start;
+    border-radius: 5px;
+    border: 1px solid;
+}
+.recipe-affichage__temps {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+#recipe_breakTime_hour,  #recipe_breakTime_minute, #recipe_cookingTime_hour, #recipe_cookingTime_minute{
+    width: 60px;
+    height: 30px;
+    font-size: 18px;
+}
+.recipe-affichage__temps__total, .recipe-affichage__temps__breakTime, .recipe-affichage__temps__cookingTime {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+option {
+    height: 20px;
+    font-size: 20px;
+}
+#recipe_public {
+    width: 20px;
+    height: 20px;
+}
+#recipe_step {
+    width: 60vw;
+    height: 80px;
+    font-size: 20px;
+}
+.recipe-affichage__items__btn {
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#recipe_pictures {
+    font-size: 20px;
+}
+.btn-enregistrer {
+    width: fit-content;
+    padding: 2px;
+    background-color: #48CC46;
+    color: #ffffff;
+    text-decoration: none;
+    align-self: center;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: black;
+    font-size: 20px;
+}
+.btn-enregistrer:hover {
+    background-color: #289526;
+}
+footer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+}
+.page-courante {
+    color: #ff8901; 
+}
+.page-non-courante {
+    color: #000000;
+    text-decoration: none;
+}
+.page-non-courante:hover {
+    color: #858585;
+}
+.page-non-courante:active {
+    color: #000000;
+}
+h1 {
+    margin: 4px;
+    font-size: 26px;
+    align-self: center;
+}
+h2 {
+    margin: 4px;
+    font-weight: 400;
+    font-size: 22px;
+}
+p {
+    margin: 4px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .recipe {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .recipe-affichage {
+        margin: 6px;
+        padding: 4px;
+        min-width: 400px;
+        width: fit-content;
+        flex-direction: column;
+        justify-content: start;
+        border-radius: 5px;
+    }
+    .recipe-affichage__items__btn {
+        justify-items: end;
+        height: 100%;
+        align-items: end;
+    }
+}

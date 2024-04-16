@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="{{ asset('css/base/baseAdmin.css') }}">
+        
+        {% block stylesheets %}{% endblock %}
+
+        {% block scripts %}
+	    <script src="{{ asset('js/modele/windowOnload.js') }}"></script>
+	    <script src="{{ asset('js/modele/navAffichage.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body onresize="resizeWindowWidth()">
+        <header>
+            <nav class="nav-list">
+                <img class="nav-list__close-icon" src="{{ asset('dossierImage/nav/x-circle.svg') }}">
+                <a class="nav-list__item" href="{{ path('app_accueil') }}">Accueil</a>
+                <a class="nav-list__item" href="{{ path('app_recette_index') }}">Recette</a>
+                <a class="nav-list__item" href="{{ path('app_contacte') }}">Contact</a>
+                <a class="nav-list__item" href="{{ path('app_cgv') }}">CGV</a>
+                <a class="nav-list__item" href="{{ path('app_mentionslegale') }}">MentionLegale</a>
+            {% if is_granted('ROLE_ADMIN') %} 
+                <a class="nav-list__item" href="{{ path('app_logout') }}">Déconnexion</a>
+                <a class="nav-list__item" href="{{ path('app_monprofil') }}">Mon profil</a>
+                <a class="nav-list__item" href="{{ path('app_register_index') }}">Utilisateur</a>
+                <a class="nav-list__item" href="{{ path('app_recipe_index') }}">Recette Creation</a>
+                <a class="nav-list__item" href="{{ path('app_diet_index') }}">Diet</a>
+                <a class="nav-list__item" href="{{ path('app_allergens_index') }}">Allergens</a>
+                <a class="nav-list__item" href="{{ path('app_contacte_index') }}">Liste Contact</a>
+            {% elseif is_granted('ROLE_USER') %}
+                <a class="nav-list__item" href="{{ path('app_monprofil') }}">Mon profil</a>
+                <a class="nav-list__item" href="{{ path('app_logout') }}">Déconnexion</a>
+            {% else %}
+                <a class="nav-list__item" href="{{ path('app_login') }}">Connexion</a>
+            {% endif %} 
+            </nav>
+            <div class="header-div">
+                {% block header %}{% endblock %}
+            </div>
+            <img class="nav-icon" src="{{ asset('dossierImage/header/nav.svg') }}">
+        </header>
+        <main>
+        {% block main %}{% endblock %}
+        </main>
+        <footer>
+        {% block footer %}{% endblock %}
+        </footer>
+    </body>
+</html>

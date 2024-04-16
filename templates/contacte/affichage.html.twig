@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/contacteCLI/contacteCLI.css') }}">
+{% endblock %}
+
+{% block main %}
+<h1>Contacte</h1>
+    {{ include('contacte/_form.html.twig') }}
+{% endblock %}

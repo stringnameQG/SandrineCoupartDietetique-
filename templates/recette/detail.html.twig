@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/recette/recetteDetail.css') }}">
+{% endblock %}
+
+{% block scripts %}
+	<script src="{{ asset('js/recette/windowOnload.js') }}"></script>
+	<script src="{{ asset('js/modele/navAffichage.js') }}"></script>
+	<script src="{{ asset('js/jquery/jquery-3.7.1.min.js') }}"></script>
+	<script src="{{ asset('js/recette/avisRecette.js') }}"></script>
+	<script src="{{ asset('php/recette/avisRecette.php') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="infos-principale">
+        <h2>{{ recette.title }}</h2>
+    </div>
+    <div>
+        <img class="img" id="{{ recette.id }}" src={{ "https://res.cloudinary.com/derejrikc/image/upload/v1712508171/stephaniecarondietetique/" ~ recette.picture[0].name ~ ".webp" }} alt="Image" decoding="async">
+    </div>
+    <div class="infos-principale">
+        <p>{{ recette.description }}</p>
+        <p>{{ recette.ingredients }}</p>
+    </div>
+    <div class="infos-time">
+        <div>
+            <p>Temps de préparation</p>
+            <p>{{ recette.breakTime|date('H\\hi') }}</p>
+        </div>
+        <div>
+            <p>Temps de cuisson</p>
+            <p>{{ recette.cookingTime|date('H\\hi') }}</p>
+        </div>
+    </div>
+    <div class="infos-regime">
+        <h2>Allergis</h2>
+        <div>
+            {% for allergen in recette.allergens %}
+                <p>{{ allergen }}</p>
+            {% endfor %}
+        </div> 
+        <h2>Diet</h2>
+        <div>
+            {% for diets in recette.diet %}
+                <p>{{ diets }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="infos-public">
+        <p class="infos-public__step">{{ recette.step }}</p>
+    </div>
+    {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %} 
+    <div class="form">
+        <form class="form-view" method="POST">
+            <label for="score">score</label>
+            <input type="number" name="score" id="score" min="0" max="5" value="" require>
+            <label for="comment">comment</label>
+            <textarea name="comment" id="comment" maxlength="400" value="" require></textarea>
+            <input type="number" name="recipe" id="recipe" value="{{ recette.id }}" hidden readonly require>
+            <input type="number" name="userId" id="userId" value="{{ app.user.id }}" hidden readonly require>
+        </form>
+        <button class="serialisation" id="Serialisation">ENVOYER</button>
+    </div>
+    {% endif %} 
+    {% if recette.view != null %} 
+    <div class="infos-public">
+        <h3>Avis:</h3>
+        {% for item in recette.view %}
+        <div class="avis-affichage">
+            <p class="avis-affichage__items">{{ item.score }}/5</p>
+            <p class="avis-affichage__items">{{ item.comment }}</p>
+        </div>
+        {% endfor %}
+    <div>
+    {% endif %}
+{% endblock %}

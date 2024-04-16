@@ -1,0 +1,12 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/recipe/recipeNouveau.css') }}">
+{% endblock %}
+
+{% block main %}
+<h1>Création Recette</h1>
+<div class="recipe-affichage">
+    {{ include('recipe/_form.html.twig') }}
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block scripts %}
+	<script src="{{ asset('js/recipeEdit/windowOnload.js') }}"></script>
+	<script src="{{ asset('js/modele/navAffichage.js') }}"></script>
+    <script src="{{ asset('js/images/images.js') }}"></script>
+{% endblock %} 
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/recipe/recipeNouveau.css') }}">
+{% endblock %}
+
+{% block main %}
+<h1>Modification Recette</h1>
+<div class="recipe-affichage">
+    {{ include('recipe/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+</div>
+{% endblock %}

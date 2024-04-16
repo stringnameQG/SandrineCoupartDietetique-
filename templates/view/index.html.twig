@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}View index{% endblock %}
+
+{% block body %}
+    <h1>View index</h1>
+        {% for view in views %}
+        <article>
+            <p>{{ view.score }}</p>
+            <p>{{ view.comment }}</p>
+            <div>
+                {{ include('view/_delete_form.html.twig') }}
+            </div>
+        </article>
+        {% else %}
+        <article>
+            <p>Aucun Avis</p>
+        </article>
+        {% endfor %}
+    <a href="{{ path('app_view_new') }}">Create new</a>
+    <footer class='pagination'>
+        {% for page in 1..totalPages %}
+            {% if page == currentPage %}
+                <span>{{ page }}</span>
+            {% else %}
+                <a class="page-non-courante" href="{{ path('app_recipe_index', {'page': page}) }}">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
+    </footer>
+{% endblock %}

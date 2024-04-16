@@ -1,0 +1,49 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/allergens/allergensIndex.css') }}">
+{% endblock %}
+
+{% block header %}
+<a class="btn-new" href="{{ path('app_allergens_new') }}">Nouvelle allergis</a>
+{% endblock %}
+{% block main %}
+    <h1>Liste allergens</h1>
+    <div class="allergen">
+    {% for allergen in allergens %}
+    <div class="allergen-affichage">
+        <div class="allergen-affichage__items">
+            <h2>Nom</h2>
+            <div class="allergen-affichage__items__name">
+                <p>{{ allergen.name }}</p>
+            </div>
+        </div>
+        <div class="allergen-affichage__items">
+            <h2>Description</h2>
+            <div class="allergen-affichage__items__description">
+                <p>{{ allergen.description }}</p>
+            </div>
+        </div>
+        <div class="allergen-affichage__items__btn">
+            {{ include('allergens/_delete_form.html.twig') }}
+            <a class="btn-modifier" href="{{ path('app_allergens_edit', {'id': allergen.id}) }}">MODIFIER</a>
+        </div>
+    </div>
+    {% else %}
+    <div>
+        <span>Aucun allergens chargé</span>
+    </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+{% block footer %}
+<footer class='pagination'>
+    {% for page in 1..totalPages %}
+        {% if page == currentPage %}
+            <span>{{ page }}</span>
+        {% else %}
+            <a class="page-non-courante" href="{{ path('app_allergens_index', {'page': page}) }}">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+</footer>
+{% endblock %}

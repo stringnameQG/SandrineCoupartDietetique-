@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/recette/recette.css') }}">
+{% endblock %}
+
+{% block main %}
+<h1>Recette</h1>
+
+<div class="recette">
+{% for recipe in recipes %}
+<article class="recette-affichage">
+    <a class="recette-affichage__lien"  href="{{ path('app_recette_detail', {'id': recipe.id}) }}">
+    <div class="img-contenant">
+        <img class="img" src={{ "https://res.cloudinary.com/derejrikc/image/upload/v1712508171/stephaniecarondietetique/" ~ recipe.picture ~ ".webp" }} alt="Image" decoding="async">
+    </div>
+    <div class="recette-affichage__infos">
+        <p class="titre-recipe">{{ recipe.title }}</p>
+        <p>{{ recipe.description }}</p>
+        <p>Temps total: {{ (recipe.breakTime|date("U") + recipe.cookingTime|date("U"))|date('H\\hi') }}</p>
+    </div>
+    </a>
+</article>
+{% endfor %}
+</div>
+<div class='pagination'>
+    {% for page in 1..totalPages %}
+        {% if page == currentPage %}
+            <span>{{ page }}</span>
+        {% else %}
+            <a class="page-non-courante" href="{{ path('app_recette_index', {'page': page}) }}">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

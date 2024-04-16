@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+    <div class="allergen-affichage__items">
+        <div class="allergen-affichage__items__name">
+        {{ form_row(form.name, {label: 'Nom'}) }}
+        </div>
+    </div>
+    <div class="allergen-affichage__items">
+        <div class="allergen-affichage__items__description">
+        {{ form_row(form.description, {label: 'Description'}) }}
+        </div>
+    </div>
+    <div class="allergen-affichage__items__btn-enregistrer">
+        <button class="btn-enregistrer">{{ button_label|default('ENREGISTRER') }}</button>
+    </div>
+{{ form_end(form) }}

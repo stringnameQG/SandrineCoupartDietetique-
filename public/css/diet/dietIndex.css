@@ -1,0 +1,136 @@
+.header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+}
+.btn-new {
+    padding: 2px;
+    background-color: #48CC46;
+    color: #ffffff;
+    text-decoration: none;
+    justify-self: center;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: black;
+}
+.btn-new:hover {
+    background-color: #289526;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.diet-affichage {
+    background-color: #D4D4D4;
+    margin: 6px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border-radius: 5px;
+}
+.diet-affichage__items__name, .diet-affichage__items__description {
+    background-color: #ffffff;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: flex-start;
+    border-radius: 5px;
+    border: 1px solid;
+}
+.diet-affichage__items__btn {
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.btn-supprimer {
+    background-color: #FF7A7A;
+    color: #ffffff;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: black;
+    font-size: 22px;
+}
+.btn-supprimer:hover {
+    background-color: #ff4646;
+}
+.btn-modifier {
+    padding: 1px;
+    padding-left: 3px;  padding-right: 3px;
+    background-color: #FFCA7A;
+    color: #ffffff;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: black;
+    font-size: 22px;
+    text-decoration: none;
+}
+.btn-modifier:hover {
+    background-color: #f7b24a;
+}
+.btn-modifier:active {
+    background-color: #FFCA7A;
+}
+footer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+}
+.page-courante {
+    color: #ff8901; 
+}
+.page-non-courante {
+    color: #000000;
+    text-decoration: none;
+}
+.page-non-courante:hover {
+    color: #858585;
+}
+.page-non-courante:active {
+    color: #000000;
+}
+h1 {
+    margin: 4px;
+    font-size: 26px;
+    align-self: center;
+}
+h2 {
+    margin: 4px;
+    font-weight: 400;
+    font-size: 22px;
+}
+p {
+    margin: 4px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+    .diet {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .diet-affichage {
+        margin: 6px;
+        padding: 4px;
+        min-width: 320px;
+        width: 400px;
+        flex-direction: column;
+        justify-content: start;
+        border-radius: 5px;
+    }
+    .diet-affichage__items__btn {
+        justify-items: end;
+        height: 100%;
+        align-items: end;
+    }
+}

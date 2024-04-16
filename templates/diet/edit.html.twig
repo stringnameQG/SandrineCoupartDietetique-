@@ -1,0 +1,12 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/diet/dietNouveau.css') }}">
+{% endblock %}
+
+{% block main %}
+<h1>Create diet</h1>
+<div class="diet-affichage">
+    {{ include('diet/_form.html.twig', {'button_label': 'Update'}) }}
+</div>
+{% endblock %}

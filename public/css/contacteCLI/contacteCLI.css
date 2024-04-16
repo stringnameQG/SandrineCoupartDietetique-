@@ -1,0 +1,101 @@
+body {
+    background-color: rgb(64, 152, 123);
+    background-image: url("../../dossierImage/contacteCLI/TableSansPlatPrecis.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+h1 {
+    margin: 0px;
+    color: #ffffff;
+    justify-self: start;
+}
+form {
+    background-color: #d9d9d933;
+    width: 80vw;
+    max-width: 800px;
+    height: 70vw;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px hsla(0, 0%, 0%, 0.4);
+}
+form>div {
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 6px;
+}
+.contacte-affichage__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+input {
+    width: calc(100% - 6px);
+    height: 30px;
+    font-size: 24px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+.div__btn-envoyer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.btn-envoyer {
+    height: fit-content;
+    align-self: center;
+    letter-spacing: 1px;
+}
+p {
+    letter-spacing: 1px;
+}
+textarea {
+    height: 80px;
+    font-size: 24px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+.btn-envoyer {
+    height: fit-content;
+    font-size: 26px;
+}
+
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-image: url("../../dossierImage/contacteCLI/AsietteViandeEtTranche.webp");
+    }
+    h1 {
+        color: #ffffff;
+    }
+    .nav-list__item {
+        color: #ffffff;
+    }
+    main {
+        gap: 60px;
+    }
+    form {
+        width: 475px;
+        height: 373px;
+    }
+    form>div {
+        width: calc(100% - 20px);
+    }
+    input {
+        height: 30px;
+    }
+}

@@ -1,0 +1,58 @@
+{{ form_start(form) }}
+    <div class="recipe-affichage__title">
+        {{ form_row(form.title, {label: 'Titre'}) }}
+    </div>
+    {# Vérifier si la route est "annonces_edit" on affiche les images #}
+    {% if app.request.attributes.get('_route') == 'app_recipe_edit' %}
+    <section class="affichage-picture">
+        <h3>Images</h3>
+        {% for image in recipe.picture %}
+            <div class="picture">
+                <img src={{ "https://res.cloudinary.com/derejrikc/image/upload/v1712508171/stephaniecarondietetique/" ~ image.name ~ ".webp" }} alt="Image" decoding="async" height="auto" width="150px">
+                <a class="btn-supprimer" href="{{ path('app_recipe_delete_image', {id: image.id}) }}" 
+                data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+            </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+    <div class="recipe-affichage__description">
+        {{ form_row(form.description, {label: 'Description'}) }}
+    </div>
+    <div class="recipe-affichage__ingredients">
+        {{ form_row(form.ingredients, {label: 'Ingredients'}) }}
+    </div>
+    <div class="recipe-affichage__temps">
+        <div class="recipe-affichage__temps__breakTime">
+            {{ form_row(form.breakTime, {label: 'Temps de préparation'}) }}
+        </div>
+        <div class="recipe-affichage__temps__cookingTime">
+            {{ form_row(form.cookingTime, {label: 'Temps de cuisson'}) }}
+        </div>
+    </div>
+    <div class="recipe-affichage__allergens">
+        {{ form_row(form.allergens, {label: 'Liste allergis'}) }}
+    </div>
+    <div class="recipe-affichage__diet">
+        {{ form_row(form.diet, {label: 'Régime alimentaire'}) }}
+    </div>
+    <div class="recipe-affichage__public">
+        {{ form_row(form.public, {label: 'Public'}) }}
+    </div>
+    <div class="recipe-affichage__step">
+        {{ form_row(form.step, {label: 'Étapes préparation'}) }}
+    </div>
+    
+    {# On essaie de rendre les images obligatoires pour new et pas edit #}
+    {% if app.request.attributes.get('_route') == 'app_recipe_new' %}
+        <div class="recipe-affichage__img">
+            {{ form_row(form.pictures, {'attr': {'required': 'true'}}) }}
+        </div>
+    {% else %}
+        <div class="recipe-affichage__img">
+            {{ form_row(form.pictures) }}
+        </div>
+    {% endif %}
+
+
+    <button class="btn-enregistrer">{{ button_label|default('SAUVEGARDER') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,37 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/user/userNouveau.css') }}">
+{% endblock %}
+
+{% block main %}
+<h1>Creation utilisateur</h1>
+<div class="user-affichage">
+    {{ form_errors(registrationForm) }}
+    {{ form_start(registrationForm) }}
+    <div class="user-affichage__items">
+        <div class="user-affichage__items__email">
+            {{ form_row(registrationForm.email, {label: 'Email'}) }}
+        </div>
+    </div>
+    <div class="user-affichage__items">
+        <div class="user-affichage__items__password">
+            {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe'}) }}
+        </div>
+    </div>
+    <div class="user-affichage__items">
+        <div class="user-affichage__items__allergens">
+            {{ form_row(registrationForm.Allergens, {label: 'Liste allergis'}) }}
+        </div>
+    </div>
+    <div class="user-affichage__items">
+        <div class="user-affichage__items__diet">
+            {{ form_row(registrationForm.Diet, {label: 'Régime alimentaire'}) }}
+        </div>
+    </div>
+    <div class="user-affichage__items__btn-enregistrer">
+        <button type="submit" class="btn-enregistrer">ENREGISTRER</button>
+    </div>
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}

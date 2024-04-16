@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+{% if user == null %}
+    <span>Aucun utilisateur connecté</span>
+{% else %}
+    <div>
+        {{ include('monprofil/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+{% endif %}
+{% endblock %}

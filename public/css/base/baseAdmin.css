@@ -1,0 +1,105 @@
+@font-face { 
+    font-family: LiberationSans-Regular; 
+    src: url('../../Police/LiberationSans-Regular.ttf');
+}
+@font-face { 
+    font-family: GoboldRegular; 
+    src: url('../../Police/GoboldRegular.otf');
+}
+@font-face { 
+    font-family: ModernSans-Light; 
+    src: url('../../Police/ModernSans-Light.otf');
+}
+body {
+    margin: 0px;
+    height: 100vh;
+    font-family: LiberationSans-Regular;
+    font-weight: 400;
+    font-size: 28px;
+}
+header {
+    padding-left: 10px; padding-right: 10px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-icon {
+    justify-self: end;
+    width: 100px;
+    height: 100px;
+}
+.nav-list {
+    background-color: #ffffff7b;
+    padding: 16px;
+    width: fit-content;
+    height: fit-content;
+    font-family: ModernSans-Light;
+    display: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    top: 0px; right: 0px;
+    border: 1px solid #000000;
+    border-radius: 0px 0px 0px 7px;
+    box-shadow: -5px 5px 10px #4141413c;
+    z-index: 1;
+}
+.nav-list__close-icon {
+    width: 80px;
+    height: 80px;
+    align-self: end;
+}
+.nav-list__item {
+    margin-top: 14px; margin-bottom: 14px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+.nav-list__item:hover {
+    background-color: #899bbc;
+    color: #ffffff;
+}
+main {
+    height: fit-content;
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        font-size: 18px;
+    }
+    header {
+        padding-left: 20px; padding-right: 20px;
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .nav-list {
+        padding: 5px;
+    }
+    .nav-icon {
+        display: none;
+    }
+    .nav-list {
+        background-color: #ffffff00;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        position: relative;
+        border: unset;
+        border-radius: 0px 0px 0px 0px;
+        box-shadow: none;
+        font-size: 16px;
+        justify-self: center;
+    }
+    .nav-list__close-icon {
+        display: none;
+    }
+}

@@ -1,0 +1,83 @@
+body {
+    background-color: rgb(64, 152, 123);
+    background-image: url("../../dossierImage/Accueil/PlatLegumesAFeuillesVertes.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 10vh;
+}
+h1 {
+    margin: 0px;
+}
+.services {
+    background-color: #d9d9d933;
+    width: 470px;
+    height: 440px;
+    border-radius: calc(470px / 2) / calc(440px / 2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+}
+.apropos {
+    background-color: #d9d9d933;
+    width: 520px;
+    height: 600px;
+    border-radius: calc(520px / 2) / calc(600px / 2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+}
+p {
+    letter-spacing: 1px;
+}
+
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-image: url("../../dossierImage/Accueil/PatesAvecPlatDeLegumes.webp");
+    }
+    .nav-list__item {
+        color: #ffffff;
+    }
+    main {
+        gap: 60px;
+    }
+    h1 {
+        margin: 0px;
+    }
+    .services {
+        margin-left: 30vw;
+        width: 492px;
+        height: 255px;
+        border-radius: calc(492px / 2) / calc(255px / 2);
+        shape-outside: ellipse(calc(492px / 2) calc(255px / 2));
+        justify-content: start;
+        gap: 10px;
+    }
+    .apropos {
+        margin-left: 40vw;
+        background-color: #d9d9d933;
+        width: 555px;
+        height: 295px;
+        border-radius: calc(555px / 2) / calc(295px / 2);
+        justify-content: start;
+        gap: 10px;
+    }
+    h2 {
+        margin: 10px;
+    }
+    p {
+        margin: 0px;
+    }
+}

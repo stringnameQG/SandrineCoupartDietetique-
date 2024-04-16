@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+        {{ form_row(form.email, {label: 'e-mail'}) }}
+        {{ form_row(form.demande, {label: 'Demande'}) }}
+        <button class="btn-envoyer">{{ button_label|default('ENREGISTRER') }}</button>
+{{ form_end(form) }}

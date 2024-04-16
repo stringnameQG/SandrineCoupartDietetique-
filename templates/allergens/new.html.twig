@@ -1,0 +1,12 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/allergens/allergensNouveau.css') }}">
+{% endblock %}
+
+{% block main %}
+<h1>Creation Allergie</h1>
+<div class="allergen-affichage">
+    {{ include('allergens/_form.html.twig') }}
+</div>
+{% endblock %}
